@@ -1,80 +1,59 @@
-# 03 — Incident Response & Alert Triage
+# Incident Response & Alert Triage
 
-## Objective
+## Platforms
 
-Practice the SOC Analyst L1 response process for common security incidents.
+- LetsDefend
+- TryHackMe — SOC Level 1
 
-## L1 Triage Framework
+## Project Overview
 
-### 1. Understand the Alert
+Worked simulated SOC alerts across phishing, brute-force and malware categories through the incident lifecycle.
 
-Determine what triggered the alert and which security control generated it.
+## Incident Lifecycle
 
-### 2. Validate
+**Identification → Validation → Containment → Evidence Collection → IOC Extraction → Timeline → Root Cause → Escalation → Documentation**
 
-Ask whether the activity is expected, suspicious or clearly malicious.
+## Phishing
 
-### 3. Identify Scope
+Validate the email and sender, extract domains/URLs, determine whether the user interacted with the message, assess credential or payload exposure, determine scope and escalate confirmed compromise.
 
-Determine:
+## Brute Force
 
-- Affected user
-- Host/device
-- Account
-- Source and destination IP
-- Domain
-- Time window
-- Related alerts
+Identify repeated authentication failures, determine source and targeted account, establish the timeframe, check for successful authentication following failures, assess scope and escalate when compromise is suspected.
 
-### 4. Collect Evidence
+## Malware
 
-Gather relevant logs, authentication events, process information, network connections and IOCs.
+Identify the affected endpoint, review process/file context, extract hashes and network indicators, build a basic timeline, follow the approved containment process and escalate when deeper endpoint analysis is required.
 
-### 5. Assess Severity
-
-Consider:
-
-- Asset importance
-- User/account privilege
-- Evidence of compromise
-- Business impact
-- Number of affected systems
-- Whether the threat is still active
-
-### 6. Contain
-
-Perform only actions authorized by the organization's incident-response procedure.
-
-Examples include isolating an endpoint, disabling a compromised account, blocking a malicious domain or IP, or removing a malicious email.
-
-### 7. Escalate
-
-Escalate when the incident exceeds L1 authority, scope or technical complexity.
-
-### 8. Document
+## Evidence Collection
 
 Record:
+- Alert timestamp
+- Affected user
+- Hostname
+- Source/destination IP
+- Domains and URLs
+- File hashes
+- Relevant log events
+- Process information
+- Authentication activity
+- Related alerts
 
-- What happened
-- What was observed
-- Evidence
-- Actions taken
-- Who was notified
-- Current status
-- Recommended next step
+## Timeline Analysis
 
-## Common L1 Scenarios
+1. Initial event
+2. User/endpoint activity
+3. Detection
+4. Related activity
+5. Analyst response
+6. Containment
+7. Escalation
+8. Closure
 
-- Phishing email
-- Multiple failed logins
-- Suspicious PowerShell activity
-- Malware alert
-- Impossible-travel login
-- Suspicious outbound connection
-- DNS tunneling indicator
-- Account compromise
-- Brute-force activity
+## Verdict & Escalation
 
-## Analyst Mindset
+Every investigation documents the verdict, supporting evidence and escalation rationale for L2/L3.
 
-A good L1 analyst should avoid jumping to conclusions. Start with the alert, validate the evidence, establish scope, follow the playbook, and escalate when necessary.
+## Post-Incident Summary
+
+Completed cases use a standard template covering what happened, impact, evidence, timeline, actions, verdict, escalation, root cause and lessons learned.
