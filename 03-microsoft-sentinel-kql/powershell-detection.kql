@@ -1,0 +1,8 @@
+// Example hunting query for PowerShell process activity.
+// The available table and fields depend on the endpoint connector.
+
+DeviceProcessEvents
+| where Timestamp >= ago(24h)
+| where FileName =~ "powershell.exe"
+| project Timestamp, DeviceName, AccountName, FileName, ProcessCommandLine, InitiatingProcessFileName
+| sort by Timestamp desc
