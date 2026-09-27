@@ -1,0 +1,27 @@
+// SOC Analyst Lab — KQL detection examples
+// Adapt table/field names to the actual Sentinel workspace schema.
+
+// Failed logon burst — Windows Event 4625
+SecurityEvent
+| where EventID == 4625
+| summarize FailedLogons = count(),
+            FirstSeen = min(TimeGenerated),
+            LastSeen = max(TimeGenerated)
+    by Account, IpAddress, bin(TimeGenerated, 10m)
+| where FailedLogons >= 10
+| order by FailedLogons desc
+
+// Local account creation — Event 4720
+SecurityEvent
+| where EventID == 4720
+| project TimeGenerated, Computer, SubjectUserName, TargetUserName
+| order by TimeGenerated desc
+
+// Windows service installation — Event 7045
+Event
+| where EventID == 7045
+| project TimeGenerated, Computer, RenderedDescription
+| order by TimeGenerated desc
+
+// NOTE: Field names vary by connector/table configuration.
+// Validate the schema before deploying an analytics rule.
