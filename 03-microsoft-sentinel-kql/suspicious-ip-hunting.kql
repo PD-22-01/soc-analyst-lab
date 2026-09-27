@@ -1,0 +1,10 @@
+// Hunt for authentication activity from a specific IOC.
+// Replace the example IP with an indicator from the investigation.
+
+let SuspiciousIP = "203.0.113.50";
+
+SigninLogs
+| where TimeGenerated >= ago(7d)
+| where IPAddress == SuspiciousIP
+| project TimeGenerated, UserPrincipalName, IPAddress, ResultType, ResultDescription, AppDisplayName
+| sort by TimeGenerated desc
