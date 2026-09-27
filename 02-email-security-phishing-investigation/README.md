@@ -1,47 +1,55 @@
-# 02 — Email Security & Phishing Investigation
+# Email Security & Phishing Investigation
 
-## Objective
+## Technologies and Sources
 
-Practice the L1 investigation of suspicious emails and phishing alerts.
-
-## Initial Triage Checklist
-
-- Who received the email?
-- What is the sender address?
-- Does the display name match the sender?
-- What is the subject?
-- Are there suspicious URLs?
-- Are there attachments?
-- Is the domain legitimate?
-- Are there signs of spoofing?
-- Did the user click the link?
-- Did the user submit credentials?
-- Did the user open an attachment?
-
-## Evidence to Collect
-
-- Sender and recipient
-- Timestamp
-- Message ID
-- URLs
-- Domains
-- IP addresses
-- Attachment names and hashes
 - Email headers
-- Authentication results such as SPF, DKIM and DMARC
-- Endpoint activity after interaction
+- SPF / DKIM / DMARC
+- Any.Run
+- VirusTotal
+- URLScan.io
+- AbuseIPDB
 
-## Response
+## Project Overview
 
-If the email is confirmed malicious:
+Investigated phishing and BEC-style samples end to end, from initial email analysis through IOC enrichment and final verdict.
 
-1. Preserve relevant evidence.
-2. Identify other recipients.
-3. Search for the same indicators across the environment.
-4. Report or escalate according to the organization's process.
-5. Contain affected accounts or endpoints when authorized.
-6. Document every action.
+## Investigation Workflow
 
-## Important Principle
+**Email → Headers → Authentication → Sender/Domain → URLs/Attachments → Sandbox → IOC Enrichment → Verdict**
 
-Do not immediately delete evidence or reset systems before the investigation process allows it. Preserve useful evidence first.
+## Header Analysis
+
+Reviewed email headers and traced messages through the **Received** chain.
+
+Key questions:
+- Where did the message originate?
+- Which mail servers handled it?
+- Do timestamps make sense?
+- Does the visible sender match the underlying infrastructure?
+- Are there suspicious relay or originating IPs?
+
+## SPF / DKIM / DMARC
+
+Used SPF, DKIM and DMARC results and alignment as evidence when assessing sender authenticity. Authentication failures were treated as investigation signals, not automatic proof of maliciousness.
+
+## Spoofing and Lookalike Domains
+
+Investigated typosquatting, character substitution, lookalike domains, suspicious subdomains and sender/display-name mismatches.
+
+## URL and Attachment Analysis
+
+Analyzed suspicious URLs and attachments in controlled environments, focusing on redirects, destination domains, file types, hashes, network indicators and observed behavior.
+
+## IOC Enrichment
+
+Enriched potential IOCs with VirusTotal, URLScan.io and AbuseIPDB to add context to the investigation.
+
+## Verdict
+
+Cases were classified using the available evidence, for example:
+- Malicious / confirmed phishing
+- Suspicious / requires escalation
+- Benign / false positive
+- Undetermined
+
+**Headers + Authentication + Infrastructure + URL/File Analysis + IOC Context = Defensible Verdict**
