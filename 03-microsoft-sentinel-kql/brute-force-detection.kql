@@ -1,0 +1,10 @@
+// Identify users with repeated failed authentication attempts.
+// Thresholds should be tuned to the environment.
+
+SigninLogs
+| where TimeGenerated >= ago(1h)
+| where ResultType != 0
+| summarize FailedAttempts=count(), FirstSeen=min(TimeGenerated), LastSeen=max(TimeGenerated)
+    by UserPrincipalName, IPAddress
+| where FailedAttempts >= 10
+| sort by FailedAttempts desc
