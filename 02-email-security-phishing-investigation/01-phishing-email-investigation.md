@@ -119,10 +119,6 @@ Escalate to L2/incident response when:
 
 **Recommended status:** Contain/monitor according to the organization's phishing playbook and escalate if additional evidence of compromise is found.
 
-## Example L1 Interview Answer
-
-> "First, I would validate the alert by checking the sender, domain, URL, email headers and the user's activity. In this case, the sender uses a suspicious lookalike domain and the email creates urgency, so I would treat it as a likely phishing attempt. Since the user clicked the link, I would check whether credentials were entered and look for any suspicious authentication or endpoint activity afterward. I would also search for other recipients and the same indicators across the environment. If the email is confirmed malicious, I would follow the approved containment process, document the evidence and escalate if there is any indication of account compromise."
-
 ## Key SOC Lesson
 
 **A phishing investigation is not just "delete the email."**
