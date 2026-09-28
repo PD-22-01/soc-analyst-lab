@@ -74,14 +74,5 @@ Look for:
 
 Escalate according to the incident-response procedure.
 
-## Interview Rule
-
-Do not say:
-
-> "I would immediately disable the user."
-
-Instead say:
-
-> "I would first validate the evidence and then follow the organization's approved containment playbook. If account compromise is confirmed and I am authorized to do so, I would contain the account and escalate."
 
 This demonstrates both technical understanding and awareness of L1 responsibilities.
