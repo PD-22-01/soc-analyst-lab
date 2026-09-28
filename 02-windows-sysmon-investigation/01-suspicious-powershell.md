@@ -74,6 +74,3 @@ If malicious execution is confirmed:
 4. Escalate according to the SOC playbook.
 5. Document the timeline.
 
-## Interview Answer
-
-> "I would not assume PowerShell is malicious just because it was executed. I would first inspect the command line, parent process, user, timestamp and related network activity. If Word spawned PowerShell with an encoded command and the host then connected to a suspicious external domain, that would increase my confidence that the activity is malicious. I would preserve the evidence, follow the authorized containment process and escalate if the incident is beyond L1 scope."
