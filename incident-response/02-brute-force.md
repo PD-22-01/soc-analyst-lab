@@ -33,7 +33,3 @@ Follow the organization's approved controls. Possible actions, when authorized, 
 ### Escalate
 
 Escalate when there is successful suspicious authentication, privileged-account targeting, multiple affected users, or evidence of compromise.
-
-## Interview Answer
-
-> "I would first validate the failed-login alert and determine whether it targets one account or many accounts. I would identify the source IP, time pattern and whether any attempts were successful. I would then correlate authentication logs with the user's normal activity and check whether the source is known. If I find successful suspicious authentication or multiple targeted accounts, I would treat it as a potential compromise, follow the approved containment process and escalate."
