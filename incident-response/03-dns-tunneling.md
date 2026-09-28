@@ -35,7 +35,3 @@ Ask:
 ## Escalation
 
 Escalate if there is strong evidence of data exfiltration, malware, command-and-control activity or a compromised endpoint.
-
-## Interview Answer
-
-> "I would not classify long DNS queries as tunneling immediately. I would first establish the baseline and check query frequency, subdomain structure, the queried domain, the source host and the process responsible. I would correlate the DNS activity with endpoint and network events. If multiple indicators support tunneling or command-and-control activity, I would preserve the evidence, follow the approved containment process and escalate."
