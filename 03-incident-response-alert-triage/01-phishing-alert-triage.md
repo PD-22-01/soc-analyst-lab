@@ -75,4 +75,3 @@ Look for:
 Escalate according to the incident-response procedure.
 
 
-This demonstrates both technical understanding and awareness of L1 responsibilities.
